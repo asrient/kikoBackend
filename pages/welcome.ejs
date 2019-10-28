@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <title>Welcome - Kiko App</title>
+    <head>
+    <% include meta.html %>
+
+    </head>
+    <script src="/bundle/jquery.js"></script>
+      <body>
+          <div id="root" class="base-regular">
+              <div class="center" style="width:100vw"><img class="icon base-bold size-l" src="/icon/Kiko-dark.png"/></div>
+              <hr/> <br/>
+          <div class="ink-orange base-bold size-xl center" id="greet">Welcome back!</div>
+         
+          <div class="center-col" id="message">You are Logged In now.
+          <br/><br/><br/>
+         <button class="button-blue" onclick="go()">Continue</button>
+          </div>
+        <br/>
+<div class="center">
+            <div id="id_box" class="ink-black base-semibold size-m">
+           <div><img class="icon size-l" src="/icon/dp.png"/></div>
+           <div>
+          <div class="ink-green base-semibold size-s" id="status">LOGGED IN AS</div>
+           <div>  <%= name %></div>
+            </div>
+          </div>
+</div>
+        
+         
+        <div id="uid_box" class="center">
+        <div class="ink-black base-semibold size-l center">Choose an UserID</div>
+        <div id="response"></div>
+       <input type="text" placeholder="UserID" id="uid_in" class="input-line-dark"/>
+       <button class="button-green" id="uid_butt" onclick="set()">Save</button>
+        </div>
+          
+         
+          </div>
+      </body>
+      <style>
+      #id_box{
+          padding:1rem;
+          background:rgb(245, 245, 245);
+         
+           margin:2rem;
+           border-radius: 0.6rem;
+          min-width:17rem;
+           display:grid;
+           grid-template-columns: 30% 70%;
+           box-shadow: 2px 2px 7px 1px #0000002e;
+
+      }
+      #uid_box{
+        display:none;
+        padding:1rem;
+        margin:2rem;
+      }
+      #response{
+          padding:2vh;
+          margin-bottom: 2vh;
+          color:rgb(202, 0, 0);
+          background:rgba(0, 228, 0, 0.281);
+  display:none;
+  border-radius: 3vh
+      }
+      </style>
+
+  <script>
+
+set=()=>{
+ var uid=document.getElementById('uid_in').value;
+ if(!(/\s/g.test(uid))){
+    if(uid!=null&&uid.length>2){
+   uid=uid.toLowerCase();
+   document.getElementById("uid_butt").innerHTML="Please Wait";
+   data={'userid':uid}
+  data= JSON.stringify(data);
+   $.get("/apis/settings/?data="+data,function(res){
+        //  res=JSON.parse(res);
+          if(res.result=="FAILED"){
+            $("#response").css({display:"block",color:"rgb(202, 0, 0)",
+        background:"rgba(255, 8, 0, 0.281)"});
+        document.getElementById("response").innerHTML=res.data;
+        document.getElementById("uid_butt").innerHTML="Try Again";
+          }
+          else if(res.result=="SUCCESS"){
+            $("#response").css({display:"block",color:"rgb(0, 183, 24)",
+        background:"rgba(0, 255, 0, 0.2)"});
+            document.getElementById("response").innerHTML=res.data;
+           location.href="/";
+          }
+      })  ;
+ }
+ else{
+  alert('This cannot be used as an UserID');
+ }
+ }
+else{alert('The UserID got spaces in between.')}
+}
+
+     go=()=>{
+       location.href='/';
+     }
+     if(<%- is_new %>){
+       document.getElementById('greet').innerHTML="Welcome!";
+       document.getElementById('message').innerHTML="You are almost done.";
+         document.getElementById('uid_box').style.display="block";
+         $('#status').html='NEW USER';
+     }
+      </script>
+
+      <script src="/bundle/error.bundle.js"></script>
+      </html>

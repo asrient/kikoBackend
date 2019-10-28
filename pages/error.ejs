@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <title>ERROR - Kiko App</title>
+    <head>
+    <% include meta.html %>
+    </head>
+      <script>
+     console.log('<%- err %>') ;
+     
+      </script>
+      <body>
+          <div id="root" class="base-regular">
+          <div class="ink-black base-bold size-xl center">Oops!</div>
+          </br></br>
+          <div class="center-col">There was a problem loading that page.
+          </br>
+          please try again.
+          </div>
+          <div id="err_box" class="ink-red base-semilight size-s">
+            <%= err %>
+          </div>
+          </hr>
+          <div class="ink-green base-bold size-xl center" style="width:100vw">#KikoSad</div>
+          </div>
+      </body>
+      <style>
+      #err_box{
+          padding:1rem;
+          background:rgb(255, 207, 215);
+          color:red;
+          border:thin solid;
+          border-color:red;
+           margin:4rem;
+           border-radius: 0.6rem;
+      }
+      </style>
+      <script src="/bundle/error.bundle.js"></script>
+      </html>

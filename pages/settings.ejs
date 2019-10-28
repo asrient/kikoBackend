@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+    <title>Settings</title>
+
+    <head>
+    <% include meta.html %>
+    </head>
+     
+      <body>
+          <div id="root"></div>
+      </body>
+      <script>
+      var settings=<%- JSON.stringify(vars) %>;
+      </script>
+      
+      <script src="/bundle/settings.bundle.js"></script>
+      </html>

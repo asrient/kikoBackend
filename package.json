@@ -1,0 +1,29 @@
+{
+  "name": "kikostation",
+  "version": "1.0.0",
+  "description": "The Web Station for Kiko app",
+  "main": "station.js",
+  "scripts": {
+    "dev": "nodemon station.js",
+    "test": "test",
+    "start": "node station.js"
+  },
+  "author": "ASRIENT",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cookie": "^0.3.1",
+    "cookie-parser": "^1.4.4",
+    "ejs": "^2.6.1",
+    "express": "^4.16.4",
+    "formidable": "^1.2.1",
+    "jimp": "^0.6.8",
+    "mongodb": "^3.1.13",
+    "mongoose": "^5.4.19",
+    "node-backblaze-b2": "^1.0.7-c",
+    "socket.io": "^2.2.0",
+    "spotify-web-api-node": "^4.0.0",
+    "underscore": "^1.9.1",
+    "useragent": "^2.3.0"
+  }
+}

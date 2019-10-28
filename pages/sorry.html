@@ -1,0 +1,136 @@
+<html>
+    <title>404</title>
+    <head><link rel="icon" 
+        type="image/png" 
+        href="/icon/ico.png">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+        <meta name="viewport" content="height=device-height, initial-scale=1.0">        
+    </head>
+<body id="bdy">
+<div id="all">
+    <br><br>
+   <div class="center"><div  id="icon" ></div></div> 
+
+   <div class="center"><div id="mass">
+ Heartbreaks and 404
+</div></div>
+
+<br>
+
+<div class="center"><div id="explaination">
+    The link is broken.
+</div></div>
+
+<div class="center"><a href="/" id="link">Go Back</a></div>
+
+<br><br>
+</div>
+</body>
+</html>
+<style>
+    #bdy{
+       /* background: url(media/sorry.jpg) 50% 50% / cover;*/
+   
+    background-repeat: no-repeat;
+  
+    }
+
+    .center{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  flex-direction: row;
+}
+
+#all{
+  
+    transition: all;
+    transition-duration: 1s;
+}
+body{
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color:rgb(202, 202, 202);
+    margin: 0px;
+}
+#icon{
+    width:12rem;
+    background: url("/icon/heartbreak.png") 50% 50%;
+    background-size: contain;
+  background-repeat: no-repeat;
+    transition: all;
+    transition-duration: 1s;
+    height: 6rem;
+    box-sizing: border-box;
+    margin: 0.1em;
+    margin-top: 4vh;
+}
+@media(min-width:700px){
+#icon{
+    margin-top: 10vh;
+}
+}
+#link{
+    display:inline-block;
+    text-decoration: none;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    border:thin solid;
+    box-sizing: border-box;
+    padding: 0.8rem;
+    border-radius: 1rem;
+color:#ffffff;
+font-weight: 600;
+background: linear-gradient(120deg,#d500c0,#00dfff);
+}
+#link:hover{
+    background: linear-gradient(90deg,#d500c0,#00dfff);
+}
+#mass{
+     font-weight: 700;
+    font-size: 3rem;
+    color: #e91e63;
+    margin:1rem;
+    margin-top: 8.5vh;
+    margin-bottom: 3vh;
+}
+
+#explaination{
+    font-size: 2rem;
+    font-weight: 500;
+    color: #414141;
+}
+
+   
+
+</style>
+<script>
+    var low=1;
+    window.setInterval("blink()",1000);
+   // window.setTimeout("resize()",100);
+    function blink(){
+        if(low==1)
+        {
+            document.getElementById("icon").style.height='7rem';
+            document.getElementById("icon").style.opacity=0.5;low=0;
+            }
+else{
+    document.getElementById("icon").style.height='6rem';
+    document.getElementById("icon").style.opacity=1;low=1;
+}
+    }
+    var xpnded=0;
+function expand(){
+    if(xpnded==0)
+{document.getElementById("explaination").style.display="block";xpnded=1;document.getElementById("xpnd").innerHTML="Hide";}
+else{
+    document.getElementById("explaination").style.display="none";xpnded=0;document.getElementById("xpnd").innerHTML="See Why>";
+}
+}
+function resize(){
+document.getElementById("bdy").style.fontSize="3.5vh";
+}
+</script>

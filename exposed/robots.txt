@@ -1,0 +1,17 @@
+# @ASRIENT 2nd Sept 19
+# guide for curious creepy crawlies of the internet
+
+User-agent: *
+Allow: /
+Allow: /info
+Allow: /pods
+Allow: /@*
+Allow: /pod/*
+Disallow: /permit
+Disallow: /apis/*
+Disallow: /icon/*
+Disallow: /media/*
+Disallow: /bundle/*
+Disallow: /test
+
+Sitemap: http://kikoing.herokuapp.com/sitemap.xml

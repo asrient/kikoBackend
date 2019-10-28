@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <title>Kiko App</title>
+    <head>
+    <% include meta.html %>
+    </head>
+      <script>
+      var myID='someone';
+      const AUTH= "<%= auth %>";
+      var me={
+       userid:'<%- userid %>',
+       pod:null,
+       auth:'<%= auth %>',
+       source:<%- JSON.stringify(source) %>
+     }
+
+if(me.userid==''){
+  me.userid=null;
+}
+
+      </script>
+      <body>
+          <div id="root"></div>
+      </body>
+      <style>
+     #root{ width: 100%;
+    min-height: 100vh;
+    top: 0px;
+    left:0px;
+    position: relative;}
+      </style>
+      <script src="https://sdk.scdn.co/spotify-player.js"></script>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="/bundle/app.bundle.js"></script>
+      </html>
